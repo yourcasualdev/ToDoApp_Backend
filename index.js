@@ -17,6 +17,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
 
+app.get('/', (req, res) => {
+    res.send('Api is running');
+});
+
 
 app.use('/login', require('./routes/login'));
 app.use('/api/todos', require('./routes/todos'));
