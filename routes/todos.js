@@ -54,7 +54,7 @@ router.delete('/:id', isAuthorized, async (req, res) => {
 //Update a Todo
 router.put('/:id', isAuthorized, async (req, res) => {
     try {
-        const updatedTodo = await Todo.findOneAndUpdate({ _id: req.params.id }, { completed: req.params.completed }, { new: true });
+        const updatedTodo = await Todo.findOneAndUpdate({ _id: req.params.id }, { completed: req.body.completed }, { new: true });
         res.json(updatedTodo);
     } catch (err) {
         res.json({ message: err });
